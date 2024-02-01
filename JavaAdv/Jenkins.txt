@@ -1,0 +1,43 @@
+1)download jenkins
+	for windows
+2)install it
+	(jenkins by default run on localhost:8080)
+	i install port:8988
+
+	create user
+		usn-admin
+		pwd-admin
+		email-tech.chandan2019@gmail.com
+		fullname-chandan
+
+3)http://localhost:8988/
+
+login-admin
+	admin
+4)create new job
+	general-->description
+	source code mgmt--->none
+	Build trigger--->(periodicaly)cron expression=>(*****)==>for every minute it is executing
+	Build Environment-->not selected
+	Build Steps---->Execute Windows batch command
+			|-----------------------------|
+			|javac HelloWorld.java	      |		
+			|java HelloWorld   	      |
+			-------------------------------
+	Post-build Actions----->not selected
+		
+	Save
+5)create java program==>class HelloWorld{}===>HelloWorld.java
+6)copy that java file and paste in this location==>
+	C:\ProgramData\Jenkins\.jenkins\workspace\HelloWorld
+							--->HelloWorld.java
+7)see the console of jenkins
+
+//===================================================
+//jenkins with maven and git==============
+1)create repo in git
+	upload one project==>https://github.com/techchandan2019/SpringBootIntegrationWithJenkins.git
+				
+2)login jenkins
+	dash board
+		-->Manage Jenkins-->Tools-->add jdk(java home from local machine(C:\Java\jdk-17))-->

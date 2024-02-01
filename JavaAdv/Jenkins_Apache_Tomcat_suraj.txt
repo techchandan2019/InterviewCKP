@@ -1,0 +1,475 @@
+     
+         ===================================================================
+            Jenkins - CI CD PIPELINE Introduction || By Ashok IT
+         ===================================================================
+     
+          Workshop Agenda
+          ===============
+           1) What is Build and Deployment Process
+           2) Application Environment In Real-Time
+           3) Challenges in Manual Builds and Depolyments
+           4) What is CI/CD and why we need ?
+           5) CI Work Flow & Benefits
+           6) CI Tools
+           7) Jenkins Introductions
+           8) Jenkins Installation & Setup
+           9) Jenkins Jobs Creations
+          10) Job Scheduling
+          11) Hands on CI with Jenkins
+
+
+            Developer & Build Adim Roles
+            ============================
+
+             Developer Roles                             Build Admin Roles
+             ===============                             =================
+             1) Coding                                 1) Pull latested Code From Repository.
+             2) Unit Testing                           2) Compile Source Code
+             3) Code Review                            3) Execute Unit Test suites
+             4) Push Code to Repository                4) Package source code as jar/war/ear
+                                                       5) Deploy to serve
+
+
+            
+             Build and Deployment Process 
+            ==================================
+             1) Take latest code from the Git Hub (devOps or Operation team take latest code)
+             2) Compile project source code
+             3) Executes Unit Test cases
+             4) Perform code review using SonarQube
+             5) Package the application (jar/war file)
+             5) Upload Build Artifact in Nexus.
+             6) Deploy the application in Server
+
+    
+             Application Environment In Real-Time
+             ====================================
+             => Environment is a platform which is used to run our application.
+
+                Application Environment
+                =======================             
+
+                  1) Dev Env => Dev env is used by development team where developer will test ,codes are working as expected or not
+                                                   => Developers will use to  perform integration testing.
+                  2) QA Env  => QA(Quality Assurance) => Testers will use to perform Functional Testing
+                 
+                  3) UAT Env => User Acceptance Testing (client side team will perform application testing)
+
+                  4) Pilot Env => It is also called as Pre-Prod environment (performance testing)
+
+                  5) Prod (Production environment)  => Live Environment (end users can access the application)
+
+               Important
+               =========
+
+                 => Development Team => Responsible for Project developemnt (Coding).
+               
+                 => Testing Team  => Responsible for Project Functionality testing (verification & validation)
+
+                 => Operations Team => Responsible for Build & Deployment Process
+
+                 => Dev+Ops  => DevOps
+                    Developemnt + Operations  ===> DevOps
+
+                 => DevOps is a process which is used to colloborate development team work & Operations team work.
+                    Using DevOps process we can simplify application Build & Deployment.
+
+              Challenges in Manual Builds and Depolyments
+              ===========================================
+                1) Every day we need to deploy latest code.
+                2) Deploy code in multiple environment
+                3) Takes lot of time
+                4) Repeated work
+                5) Error prone
+
+              Dis-Advantages of Manual Build Process
+              ==========================================
+                1) Dedicated Administrators are required to do project builds.
+                2) Developers needs to send build request to Admin to do the deployment when new committed to repository(Repo).
+                3) Admin needs to spend some time to pull the code,to compile and to packages and to deploy.
+                4) It is time consuming process.
+
+               Builds and Depolyments - Automation ||vvi
+               =========================================
+               => What ever steps we are doing in manually ,everything will be automated by using jenkins.
+
+
+              What is Jenkins ?
+              =================
+              => Jenkins is free & open source software.
+              => Jenkins Developed using java language.
+              => Jenkins is used to automate Build & Deployment Process.
+              => Using Jenkins we can implements CI/CD. 
+                   or
+              -> Jenkins is an open source automation tool written in Java programming language that allows continuous integration.
+              -> Jenkins builds and tests our software projects which continuously making it easier for developers to integrate changes to the project, 
+                  and making it easier for users to obtain a fresh build.
+
+              -> It also allows us to continuously deliver our software by integrating with a large number of testing and deployment technologies.
+              -> With the help of Jenkins, organizations can speed up the software development process through automation. 
+                 Jenkins adds development life-cycle processes of all kinds, including build, document, test, package, stage, deploy static analysis and much more.
+
+              -> Possible steps executed by Jenkins are for example:
+
+                      1) Perform a software build using a build system like Gradle or Maven Apache
+                      2) Execute a shell script
+                      3) Archive a build result
+                      4) Running software tests
+
+                   Advantages of Jenkins
+                   =====================
+                   1) It is an open source tool.
+                   2) It is free of cost.
+                   3) It does not require additional installations or components. Means it is easy to install.
+                   4) Easily configurable.
+                   5) It supports 1000 or more plugins to ease your work. If a plugin does not exist, you can write the script for it and share with community.
+                   6) It is built in java and hence it is portable.
+                   7) It is platform independent. It is available for all platforms and different operating systems. Like OS X, Windows or Linux.
+                   8) Easy support, since it open source and widely used.
+                   9) Jenkins also supports cloud based architecture so that we can deploy Jenkins in cloud based platforms.  
+
+           
+                   Disadvantages of Jenkins
+                   ========================
+                   1) Its interface is out dated and not user friendly compared to current user interface trends.
+                   2) Not easy to maintain it because it runs on a server and requires some skills as server administrator to monitor its activity.
+                   3) CI regularly breaks due to some small setting changes. CI will be paused and therefore requires some developer's team attention.
+
+
+                   how Jenkins works ?
+                   ===================
+                  -> Below are the jenkins functions
+
+                        1) First of all, a developer commits the code to the source code repository. Meanwhile, the Jenkins checks the repository at regular intervals for changes.
+                        2) Soon after a commit occurs, the Jenkins server finds the changes that have occurred in the source code repository. 
+                           Jenkins will draw those changes and will start preparing a new build.
+                        3) If the build fails, then the concerned team will be notified.
+                        4) If built is successful, then Jenkins server deploys the built in the test server.
+                        5) After testing, Jenkins server generates a feedback and then notifies the developers about the build and test results.
+                        6) It will continue to verify the source code repository for changes made in the source code and the whole process keeps on repeating.
+
+
+               What is CI/CD ?
+              ================
+
+                CI => Continuous Integration
+
+                CD  => Continuous Delivery / Continuous Deployment
+           
+              => CI/CD is one of the trending approach in software developemt life Cycle.
+              => CI/CD is used to simplify and automate project deployment & delivery. 
+
+
+
+                  Continuous Integration                         Continuous Delivery                                        Continuous Deployment
+                 ---------------------------------          --------------------------------------------             ------------------------------------------
+                |                                 |        |                                            |           |                                          |
+                |  [BUILD] --> [TEST] -->[MERGE] =============>[Automatically Release to Repository]  =================>[Automatically Deploy to Production]   |
+                |                                 |        |                                            |           |                                          |  
+                 ---------------------------------          --------------------------------------------             -----------------------------------------
+
+
+                1) Continuous Integration => When code changes happend it should be ready to test.
+
+                2) Continuous Delivery  => Keep it ready to release in the repository
+
+                3) Continuous Deployment  => Deploy the project to Production
+
+                  Note =>  1) For production Deployment we need to take Client Approval.
+
+            
+              Continuous Integration (CI)
+              ===========================
+              -> Jenkins is a software that allows continuous Integration.
+              -> Continuous Integration is a development practise in which developer are required to commit changes to source code in a shared repository several times a days.
+                 Every commits is then build and this allows the teams to detect problems early.
+              -> Continuous Integration System are a vital part of any Agile team because they help enforce the ideals of Agile development.
+
+                   How does CI Really means ?
+                   ==========================
+                    -> At a regular frequency(ideally at every commit),the System is :
+
+                       1) Integrated : -> All changes up untill that point are combined into the project.
+                       2) Built      : -> The code is complied into a executable or package.
+                       3) Tested     : -> Automated test suites are run.
+                       4) Deployed   : -> Loaded onto a system where developers can interact with it. 
+
+
+                   CI Work Flow ?
+                   ==============
+ 
+                                                  Feedback            
+                       ====================   <--------------     =============== 
+                      |                    |                     |Continuous     |  <--------------------> (Build the Code)      
+                      | Commit Changes     |   ----------------> |Integration    |  <--------------------> (Test)         
+                      | to The Source Code |                     | Sytsem        |  <--------------------> (Deploy)
+                      |                    |                     |               | 
+                       ====================                       ===============
+
+         
+                    Benefit Of CI
+                    =============
+                    1) Immediate bug detection.
+                    2) No integration step in the life cycle.
+                    3) A deployable System at any given point. 
+                    4) Record of evolution of the project.
+
+     
+                    CI Tools
+                    ========
+                     * Code Repository         : SVN ,Mercurial ,Git
+                     * Continuous Build System : Jenkins,Bamboo ,Cruise Control
+                     * Test Framework          : Junit,Cucumber ,CppUnit
+
+
+
+
+                Genkins Roles
+                =============
+
+                     Jenkins
+                        |
+                        | ----------> Build                     --------> maven
+                        |  
+                        | ----------> Version Control System   ---------> Git 
+                        |
+                        | ----------> Continous Testing        ---------> 
+                        |
+                        | ----------> Continuous Monitoring    ----------> Nagios
+                        |
+                        | ----------> Configuration Management  ---------> Puppet
+                        |
+                        | ----------> Continuous Deployment   ---------> Ansible                
+
+
+
+              Builds and Depolyments Process - Automation ||vvi
+              =================================================
+              => What ever steps we are doing in manually ,everything will be automated by using jenkins.
+
+ 
+                 Git Hub Repo                         Jenkins Server                                  Tomcat Server
+                 ============                         ==============                                  =============
+                 
+                 java-web-app      -----------------> Maven Build        ------------------------->   WAR deployed 
+                   (maven)                            EC2-VM (AWS Cloud)                              EC2-VM (AWS Cloud)
+
+                                                  =>Jenkins Resposibility
+
+                                                   1) Download code using Git
+                                                   2) package project using maven
+                                                      i.e war will be created
+                                                   3) deploy the war in tomcat
+
+
+                  Steps
+                  =====
+                   1) Download the project from Git Hub Repository
+                   2) Package the project using maven
+                   3) Maven will create War file 
+                   4) Deploy war file into Tomcat(Post-build Actions)
+
+                      Note : Above Build & Deployment process can be automated using Jenkins.
+
+                   5) Access application using URL in browser. 
+              
+
+       
+               Jenkins Installations & Configuration
+               =====================================
+
+                  1) Downlaod jenkins from official website of jenkins i.e
+        
+                         URL : https:://jenkins.io/index.html
+
+                  2) After Downloading,From the command prompt,browse to the directory where the jenkins.war file is present.Run the following command.
+    
+                         java -jar jenkins.war
+
+                  3) Extraction of the war file is done by an embedded webserver called winstone.
+
+                  4) Jenkins default run on port 8080,but we can run it on different port by suing following command
+
+                         java -jar jenkins.war --httpPort = 8181
+
+                  => Important
+
+                       To strat jenkins server command :
+      
+                              Note : open command pront from jenkins.war file localtion & use below command
+
+                              java -jar jenkins.war --httpPort=6570
+    
+                              Jenkins username : admin , password : admin
+
+                              Url : http://localhost:6570 
+        
+
+               ================================================
+                 Jenkins Job Creation With Maven & Git
+               ================================================
+                => Create a Repository in GIT Hub.
+                => Create a maven Project/Spring Boot Project in IDE (STS).
+                => Push maven project to GIT HUB Repository.
+                => Configure JAVA_HOME in Jenkins Server.
+                => Configure Jenkis Job to do build process
+
+                      Jenkins Job Creation Steps
+                      ==========================  
+                      1) Login into Jenkins
+                      2) Configure Maven in Global Tool Configuration (Jenkins will download Maven)
+
+                                   Install Maven Plugin => Go to Manage Jenkins => Manage Plugins => Global Tool Configuration => add maven
+
+                      3) Install "Deploy To Container " Plugin (To deploy war to tomcat server)
+
+                                   Tomcat Server to Deploy war file  => Go to Manage Jenkins => Manage Plugins => Go to available tab => search for "Deploy to Container" Plugin
+                                                               => Click on install without re-start
+
+                            Note => Git software will be available by default in Jenkins Global Tool Configuration
+
+              
+              
+                     Creating First Job steps
+                     ========================
+                     1) Go to New Item
+                     2) Enter an Item name(job name) i.e my_first_job and select (FreeStyle Project,Maven Project,Pipeline Project) here selected FreeStyle.
+                     3) Click on my_first_job and provide below Configuration such as 
+
+                         1) General  => it contains description about job.
+                         2) Source Code Management  => Select Git Option & Provide Repository URL ,Also Provide Credentails & Provide Branches to build (i.e */master)
+
+                                         Note : If Repository is public then no need to provide credentails 
+                                                but Repository is private then need to provide credentails.
+   
+                         3) Build Triggers  =>  Below are build triggers list such as 
+                                                 1) Trigger build Remotely.
+                                                 2) Build Periodically
+                                                 3) Poll SCM
+                                                     |
+                                                     |--> Schudule  --> * * * * *  (every 1 minutes it check my code have done any changes or not)
+                                                                    --> H * * * *  (every 1 hour it check my code have done any changes or not)
+
+
+                         4) Build Environment  => Below are build Environment list such as 
+                                                    1) delete workspace before build starts
+                                                    2)
+
+ 
+                         5) Build Steps   => Below are Build Steps list such as 
+                                                1) Execute Windows batch command
+                                                2) Execute Shell
+                                                3) Invoke top-level maven targest (selected)
+                                                
+                                           => Select maven version and goals (clean package)
+
+                        6) Post-build Actions  => Below are Post-build Actions list such as 
+
+                                                    1) Deploy war/ear to a container
+
+                                                   WAR/EAR FILES => target/*.war
+                                                   Context Path  => maven-web-app   (name of project)
+                                                   Container     => Select Tomcat 9x version & Provide Credentails & tomcat URL  
+    
+          
+ 
+            =========================================================================
+                  Apache Tomcat Web Server
+            =========================================================================
+   
+               Summery
+               =======
+               1) What is Tomcat ?
+               2) How to install Tomcat
+               3) Tomcat Admin Dashboard
+               4) How to deploy war file
+               5) Port Change
+               6) Tomcat Users
+               7) How to add Server in Eclips IDE
+
+               What is Tomcat ?
+               ================
+               -> Apache Tomact is free & open source web server.
+               -> It is used to run Java Web Applications.
+               -> Developed by Apache Organization.
+               -> Developed by using "Java" programming language.
+               -> It run on 8080 port by default.
+
+                  Note : We can change that port in server.xml file.
+
+
+              How to setup and install Tomcat Server?
+              =======================================
+              -> We can setUp Tomcat server in 2 ways.
+
+                      1) Download Installer s/w and Install it.
+                      2) Download Zip File,Extract it and use it.
+
+             -> Download tomcat server from link = https://tomcat.apache.org 
+             -> Set User name : admin ,password = admin ,default port : 8080 
+
+
+             Tomcat Server Directory Structure
+             =================================
+    
+               1) bin                  : Contains binary files tp start and stop server.
+               2) conf                 : Contains Configurations files (ex : server.xml ,users.xml)
+               3) lib                  : Contains libraries (ex : servlet-api.jar ,jsp-api.jar)
+               4) logs                 : Server extention logs will be created here 
+               5) temps                : Contains temporary files. 
+               6) webapps              : This is calles as Deployment Directory
+               7) work
+               8) LICENSE
+               9) NOTICE
+              10) RELEASE-NOTES
+              11) tomcat.ico
+              12) Uninstall.exe
+
+
+
+
+          =========================================================================================== 
+                Putty ,WinScp & Splunk
+          ===========================================================================================
+
+           Putty 
+           =====
+            => PuTTY is a free and open-source terminal emulator, serial console and network file transfer application. 
+            => It supports several network protocols, including SCP(secure copy protocol), SSH(Secure Shell), Telnet, rlogin, and raw socket connection. 
+               It can also connect to a serial port.
+
+
+                 Note
+                 =====
+                   SSH  => SSH or Secure Shell is a network communication protocol that enables two computers to communicate with one another
+                          (c.f http or hypertext transfer protocol, which is the protocol used to transfer hypertext such as web pages) and share data.
+                        => PuTTY is most commonly used: as a File Transfer Protocol PuTTY can connect to a remote machine through SSH. 
+                           SSH (Secure shell) is a protocol that allows a secure connection. In this way, a PC can securely send and receive data from a remote server.
+
+                   SCP => Secure copy protocol (SCP) is a means of securely transferring computer files between a local host and a remote host or between two remote hosts.
+ 
+               Q) How do I connect to putty?
+               =============================
+               => Open putty and enter our hostname and IP Address in the hostname or IP Address field.The default port will be 22.
+               => Click on the open button and open the command line window.In the command line window type in the SSH username at the login
+                  as prompt and press enter on your keyboard.
+
+           WinScp
+           ======
+           => WinSCP is a free and open-source SSH File Transfer Protocol, File Transfer Protocol, WebDAV, Amazon S3, and secure copy protocol client for Microsoft Windows. 
+              Its main function is secure file transfer between a local computer and a remote server.
+
+           Splunk
+           ======    
+           => Splunk is a software technology that uses the data generated by the computer to track, scan, analyze, and visualize it in real-time.
+
+
+           MobaXterm 
+           =========
+           => MobaXterm is a toolbox for remote computing.
+           => MobaXterm is a popular remote connectivity tool that offers a wide range of features for managing remote servers, transferring files, and executing commands. 
+
+
+
+
+     

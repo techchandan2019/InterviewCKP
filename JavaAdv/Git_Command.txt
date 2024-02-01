@@ -1,0 +1,36 @@
+//git clone master
+> git clone <url>
+
+
+//git clone another branch,which is available in remote
+> git clone -b <branch Name> <url>
+
+//========================================
+//create branch in local
+> git checkout -b <branch Name=dev>
+
+//push that branch to remote from another branch or master
+> git push --set-upstream origin <branch Name=dev>
+
+//=======================
+//change that brach
+> git checkout <branch name>
+
+//==========================
+//changes reflect to stash
+> git status
+> git add <path>
+
+//commit that changes to local
+> git commit -m "commit message"
+
+//commit changes reflect to remote
+> git push 
+
+//==================================
+//changes in remote reflect to local
+> git pull
+
+(or)
+> git fetch origin <branch name>    //changes reflect to local
+> git pull

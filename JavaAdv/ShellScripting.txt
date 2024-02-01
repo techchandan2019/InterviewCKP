@@ -1,0 +1,98 @@
+script file
+====================
+1)echo $0
+
+
+		shell------3
+		kernal-----2
+		hardware----1
+2)create file 
+=>vi 01_basic.sh
+----------------------
+#!/bin/bash
+			|
+echo "Hello world"	|
+			|
+-----------------------
+3)to execute this script file
+	=>a)bash 01_basic.sh
+	(or)
+	=>b)make it executable
+		=>ls ltr
+		=>chmod u+x 01_basic.sh
+		=>./01_basic.sh
+4)comments
+	a)single line
+		# abcacacac
+        b)<<comment  
+           ... 
+           ...
+          comment
+5)varible
+
+	abc.sh
+	======
+	1)name="chandan" 
+  	  echo "my name is $name"
+
+	2)hostName=${hostname}
+ 	 presentDiractory=${pwd}
+
+	3)const varible
+	---------------
+	readonly name="ckp"
+
+6)Array========
+
+	myArr=( 1 "Hello" 10 11 )
+	echo ${myArr[0]}
+
+	#get length of this array=========
+	len=${#myArr[*]}
+  
+	#update Array==================
+	myArr+=( 12 "Hi" )
+
+        #array as key value pair=============
+	declare -A myArr
+	myArr=( [name]="chandan" [age]=27 )
+	echo ${myArr[name]}	
+
+7)String operations
+	myVar="Hello world"
+	1)find length===
+		slen=${#myVar}
+	2)lower case
+		${myVar,,}
+	3)upper case
+		${myVar^^}
+	4)replace String
+		${myVar/world/Hi}
+			|     |
+			world replace by Hi
+	5)small part taken from string
+		${myVar:2:5}
+8)taking input from user
+	->read <varname>
+
+	(or)
+	->read -p "any question to ask" <varname>
+9)arithmetic operations
+	x=10;
+	y=20;
+	mul=${x}*${y}====>10*20
+==use let command
+	let mul=${x}*${y}====>200
+(or)===(())
+	mul=((${x}*${y}))======>((10*20))
+	mul=$((${x}*${y}))=====>200
+
+10)conditional
+	if[$mark -gt 10]
+	then 
+		echo "....."
+	else 	
+		echo "....."
+
+
+	

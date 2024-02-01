@@ -1,0 +1,59 @@
+1)create spring boot project
+	->create DockerFile file
+	->Docker
+	==============
+	FROM openjdk:17
+	VOLUME /tmp
+	EXPOSE 8080
+	ADD target/BootProjL2-08-SpringBootDocker-0.0.1-SNAPSHOT.jar BootProjL2-08-SpringBootDocker-0.0.1-SNAPSHOT.jar
+	ENTRYPOINT ["java","-jar","/BootProjL2-08-SpringBootDocker-0.0.1-SNAPSHOT.jar"]
+
+2)run with maven clean
+  run with maven install
+
+3)open docker tool box===>
+	docker port=>192.168.99.100
+
+	1)change path
+		$>cd C:/Eclipse_workspace/Neosoft/eclipse-workspace/BootProjL2-08-SpringBootDocker
+	2)create docker image
+		$>docker build -f <docker file name> -t <new Image name> <location>
+	eg.==>docker build -f Docker -t springbootdockertest02 .
+	3)to see the docker image list
+		$>docker image ls
+
+	4)run docker image
+		$>docker run -p <maskport>:<actualport> <Image name>
+	e.g =>docker run -p 4041:8080 springbootdockertest02
+
+	5)check in browser
+http://<docker-ip>/<path>
+	http://192.168.99.100/msg
+
+//===========================
+Docker push/pull
+================
+1)login to docker hub
+	$>docker login
+	usn:
+	pwd:
+
+2)create tag,that tag link with local to remote
+	$>docker tag <Image name> <usn>/repository>:<tagname>
+	eg: docker tag springbootdockertest01 chandan2611/projrepo01:latest
+
+3)push into docker hub
+	$>docker push <usn>/repository>:<tagname>
+	$>docker push chandan2611/projrepo01:latest
+
+4)pull from docker hub
+	$>docker pull <usn>/repository>:<tagname>
+
+5)logout
+$>docker logout
+
+//=============================
+1)to see all container running
+	$>docker ps
+2)to stop any container
+	$>docker stop <container id>
